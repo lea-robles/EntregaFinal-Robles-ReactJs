@@ -1,0 +1,25 @@
+.contenedor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+img {
+    margin-left: 5%;
+}
+
+button {
+    text-decoration: none;
+    border-style: solid;
+    border-radius: 5px;
+    padding: 2px 10px;
+    color: black;
+    margin: 5px;
+}
+
+.textoBlanco {
+    background-color: white;
+    font-size: 1.5em;
+    padding: 2px 10px;
+}

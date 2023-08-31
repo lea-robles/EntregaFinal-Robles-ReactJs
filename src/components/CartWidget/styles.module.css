@@ -1,0 +1,6 @@
+.cart {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    padding-right: 10px;
+  }

@@ -1,0 +1,74 @@
+[
+    {
+        "id": 3,
+        "nombre": "Alimento de gato x 1kg",
+        "category": "alimentos",
+        "stock": 9,
+        "precio": 1000,
+        "rutaImagen": "alimento-gato.webp"
+    },
+    {
+        "id": 5,
+        "nombre": "Alimento de perro x 1kg",
+        "category": "alimentos",
+        "stock": 7,
+        "precio": 1300,
+        "rutaImagen": "alimento-perro.webp"
+    },
+    {
+        "id": 6,
+        "nombre": "Collar de gato",
+        "category": "accesorios",
+        "stock": 2,
+        "precio": 700,
+        "rutaImagen": "collar-gato.webp"
+    },
+    {
+        "id": 8,
+        "nombre": "Collar de perro",
+        "category": "accesorios",
+        "stock": 1,
+        "precio": 900,
+        "rutaImagen": "collar-perro.webp"
+    },
+    {
+        "id": 11,
+        "nombre": "Piedras sanitarias x 1kg",
+        "category": "higiene",
+        "stock": 5,
+        "precio": 400,
+        "rutaImagen": "piedras-sanitarias.webp"
+    },
+    {
+        "id": 13,
+        "nombre": "Ratón de plástico",
+        "category": "juguetes",
+        "stock": 4,
+        "precio": 400,
+        "rutaImagen": "ratas-panio.webp"
+    },
+    {
+        "id": 15,
+        "nombre": "Pelota de tenis",
+        "category": "juguetes",
+        "stock": 6,
+        "precio": 500,
+        "rutaImagen": "pelota-tenis.webp"
+    },
+    {
+        "id": 17,
+        "nombre": "Hueso de cuero",
+        "category": "juguetes",
+        "stock": 5,
+        "precio": 600,
+        "rutaImagen": "hueso-cuero.webp"
+    },
+    {
+        "id": 19,
+        "nombre": "Rascador para gatos",
+        "category": "juguetes",
+        "stock": 2,
+        "precio": 1800,
+        "rutaImagen": "rascador-gatos.webp"
+    }
+]

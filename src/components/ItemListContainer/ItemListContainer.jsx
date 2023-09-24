@@ -1,36 +1,55 @@
-import styles from "./styles.module.css"
+import styles from './styles.module.css';
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
+import { db } from '../../firebase/client';
+import { getDocs, collection, query, where } from "firebase/firestore";
+import { RotatingLines } from 'react-loader-spinner'
 import ItemApi from "../ItemApi/ItemApi"
 
-const ItemListContainer = ({greeting}) => {
+const ItemListContainer = ({ greeting }) => {
     const [items, setItems] = useState([])
 
-    const {id} = useParams()
+    const [loading, setLoading] = useState(true)
 
-    useEffect( () => {
-        const getProducts = () => {
-            const url = "/data/products.json"
-        fetch(url)
-            .then(res => res.json())
-            .then((prod) => {
-                const productosFiltrados = prod.filter((producto) => producto.category === id)
+    const { categoryId } = useParams()
 
-                if (productosFiltrados.length > 0) return setItems(productosFiltrados)
+    useEffect(() => {
+        setLoading(true)
+        const productRef = categoryId
+            ? query(collection(db, "products"), where("category", "==", categoryId))
+            : collection(db, "products")
 
-                setItems(prod)
-              })
-            .catch(error => console.log(error))
+        const getProducts = async () => {
+            const data = await getDocs(productRef)
+            const dataFiltrada = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+            console.log(dataFiltrada)
+            setItems(dataFiltrada)
         }
         getProducts()
-    },[id])
+            .catch(error => { console.log(error) })
+            .finally(() => {
+                setLoading(false)
+            })
+    }, [])
 
-    return(
-        <div className={styles["main"]}>
-            <h1>{greeting}</h1> 
-            <ItemApi prod={items} />   
-        </div>
-        
+    return (
+        loading ?
+            <div className={styles["spinner"]}>
+                <RotatingLines
+                    strokeColor="green"
+                    strokeWidth="5"
+                    animationDuration="0.75"
+                    width="96"
+                    visible={true}
+                />
+                <p>Cargando . . .</p>
+            </div>
+            :
+            <div className={styles["main"]}>
+                <h1>{greeting}</h1>
+                <ItemApi prod={items} />
+            </div>
+
     )
 }
 

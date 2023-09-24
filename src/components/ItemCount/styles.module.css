@@ -1,0 +1,12 @@
+.contador{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.numCount{
+    font-size: 2rem;
+    padding-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}

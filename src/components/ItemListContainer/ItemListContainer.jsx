@@ -1,8 +1,8 @@
-import styles from './styles.module.css';
+import styles from './styles.module.css'
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
-import { db } from '../../firebase/client';
-import { getDocs, collection, query, where } from "firebase/firestore";
+import { db } from '../../firebase/client'
+import { getDocs, collection, query, where } from "firebase/firestore"
 import { RotatingLines } from 'react-loader-spinner'
 import ItemApi from "../ItemApi/ItemApi"
 
@@ -11,26 +11,31 @@ const ItemListContainer = ({ greeting }) => {
 
     const [loading, setLoading] = useState(true)
 
-    const { categoryId } = useParams()
+    const { id: categoryId } = useParams()
 
     useEffect(() => {
         setLoading(true)
-        const productRef = categoryId
-            ? query(collection(db, "products"), where("category", "==", categoryId))
-            : collection(db, "products")
 
         const getProducts = async () => {
+            let productRef
+            if (categoryId) {
+                productRef = query(collection(db, "products"), where("categoryId", "==", categoryId))
+            } else {
+                productRef = collection(db, "products")
+            }
             const data = await getDocs(productRef)
             const dataFiltrada = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
-            console.log(dataFiltrada)
             setItems(dataFiltrada)
         }
+        
         getProducts()
             .catch(error => { console.log(error) })
             .finally(() => {
                 setLoading(false)
             })
-    }, [])
+        console.log(categoryId)
+    }, [categoryId])
+
 
     return (
         loading ?

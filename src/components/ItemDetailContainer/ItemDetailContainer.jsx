@@ -1,10 +1,10 @@
 import { useParams } from "react-router"
 import { useState, useEffect } from "react"
 import ItemDetail from "../ItemDetail/ItemDetail"
-import { getDoc, doc } from "firebase/firestore";
-import { db } from "../../firebase/client";
+import { getDoc, doc } from "firebase/firestore"
+import { db } from "../../firebase/client"
 import { RotatingLines } from 'react-loader-spinner'
-import styles from './styles.module.css';
+import styles from './styles.module.css'
 
 const ItemDetailContainer = () => {
 

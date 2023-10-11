@@ -3,6 +3,7 @@
   background-color: rgb(39, 97, 65);
   justify-content: space-evenly;
   flex-wrap: wrap;
+  
 }
 
 .buttons {
@@ -15,4 +16,9 @@
   background-color: rgb(31, 138, 79);
   display: flex;
   justify-content: space-between;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
 }
